@@ -14,7 +14,15 @@ public class BruchApp {
 
 		for( int i = 0; i < groesse; i++ ) {
 			System.out.printf( "%d. Bruch: ", i + 1 );
-			brueche[i] = Bruch.parseBruch( in.next() );
+			try {
+				brueche[i] = Bruch.parseBruch( in.next() );
+			} catch ( NumberFormatException e ) {
+				System.out.println( "\tUngueltiges Format. Richtig: Z/N" );
+				i--;
+			} catch ( ArithmeticException e ) {
+				System.out.println( "\tUngueltiger Bruch!" );
+				i--;
+			}
 		}
 
 		java.util.Arrays.sort( brueche );
