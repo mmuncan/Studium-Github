@@ -103,7 +103,7 @@ public final class Bruch implements Comparable<Bruch> {
 
     	long teiler = ggt(Math.abs(zaehler), Math.abs(nenner));
 
-    	if ( teiler < 0 && zaehler < 0 || nenner < 0 ) {
+    	if ( nenner < 0 ) {
     		zaehler = -zaehler / teiler;
     		nenner = -nenner / teiler;
     	} else {
