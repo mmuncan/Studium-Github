@@ -101,18 +101,9 @@ public final class Bruch implements Comparable<Bruch> {
     	if ( nenner == 0 )
     		throw new ArithmeticException( "Nenner darf nicht 0 sein!");
 
-    	long teiler = ggt(Math.abs(zaehler), Math.abs(nenner));
-
-    	if ( nenner < 0 ) {
-    		zaehler = -zaehler / teiler;
-    		nenner = -nenner / teiler;
-    	} else {
-    		zaehler = zaehler / teiler;
-    		nenner = nenner / teiler;
-    	}
-
-    	this.zaehler = zaehler;
-	    this.nenner = nenner;
+        final long teiler = ggt(Math.abs(zaehler), Math.abs(nenner));
+        this.zaehler = (zaehler * Long.signum(nenner)) / teiler;
+        this.nenner = (nenner * Long.signum(nenner)) / teiler;
     }
 
     /**
@@ -257,11 +248,6 @@ public final class Bruch implements Comparable<Bruch> {
      *         groesser, kleiner oder gleich dem Argument ist
      */
     public int compareTo(Bruch einBruch) {
-        if( doubleValue() > einBruch.doubleValue() )
-        	return 1;
-        else if ( doubleValue() < einBruch.doubleValue() )
-        	return -1;
-        else
-        	return 0;
+        return Long.signum((this.zaehler * einBruch.nenner) - (einBruch.zaehler * this.nenner));
     }
 }
