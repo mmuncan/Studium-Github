@@ -54,7 +54,6 @@ public class Array<T> {
      * @return Anzahl der Inhalte
      */
     public int size() {
-    	// TODO: korrigieren
         return size;
     }
 
@@ -67,7 +66,6 @@ public class Array<T> {
      * @throws IndexOutOfBoundsException wenn <tt>index</tt> illegal ist.
      */
     public T get(int index) {
-    	// TODO: korrigieren
     	checkIndex(index);
 
         return data[index];
@@ -82,7 +80,7 @@ public class Array<T> {
     public void add(T neu) {
        if (size == data.length)
     	   adjustArrayLength();
-   	   // TODO: korrigieren
+
        data[size++] = neu;
     }
 
@@ -93,6 +91,7 @@ public class Array<T> {
 	 */
 	public Array<T> reversed() {
 		// TODO: Korrigieren !
+
 		for (int i = 0, j = size - 1; i < size / 2; i++, j--) {
 			T t = data[i];
 			data[i] = data[j];
@@ -109,11 +108,9 @@ public class Array<T> {
      * @return Index des ersten Vorkommens oder -1 wenn nicht gefunden.
      */
     public int indexOf(T gesucht) {
-    	// TODO: da fehlt was.
-    	for ( int i = 0; i < size; i++ ) {
-    		if ( data[i].equals( gesucht ) )
+    	for ( int i = 0; i < size; i++ )
+    		if ( ( gesucht == null && data[i] == null ) || data[i].equals( gesucht ) )
     			return i;
-    	}
 
     	return NOT_FOUND;
     }
@@ -122,7 +119,6 @@ public class Array<T> {
 	 * Ersetzt das bestehende Array durch ein Array doppelter Groesse.
 	 */
 	private void adjustArrayLength() {
-		// TODO: korrigieren
 		int oldLength = data.length;
 		T[] tmp = data;
 		data = newArray( oldLength * 2 );

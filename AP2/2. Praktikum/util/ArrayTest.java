@@ -73,7 +73,7 @@ public class ArrayTest {
     	assertEquals(t4, r.get(0));
     	// TODO: Den Test vervollstaendigen!
 
-    	//assertTrue("This-Objekt darf nicht veraendert werden.", a.equals(r));
+    	assertFalse("This-Objekt darf nicht veraendert werden.", a.equals(r));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
