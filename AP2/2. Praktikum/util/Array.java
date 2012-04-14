@@ -90,15 +90,12 @@ public class Array<T> {
 	 * @return neues umgedrehtes Array
 	 */
 	public Array<T> reversed() {
-		// TODO: Korrigieren !
+		Array<T> reversedData = new Array<T>();
 
-		for (int i = 0, j = size - 1; i < size / 2; i++, j--) {
-			T t = data[i];
-			data[i] = data[j];
-			data[j] = t;
-		}
+		for( int i = data.length - 1; i >= 0; i--)
+			reversedData.add(data[i]);
 
-		return this;
+		return reversedData;
 	}
 
     /**
