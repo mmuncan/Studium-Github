@@ -53,7 +53,7 @@ public class ArrayTest {
     	a.add(null);
     	assertEquals(4, a.indexOf(null));
 
-    	// Test ob null.equals() abgefangen wird
+    	// Test, ob null.equals() abgefangen wird
     	Array<String> b = new Array<String>();
     	b.add(null);
     	b.add("abc");

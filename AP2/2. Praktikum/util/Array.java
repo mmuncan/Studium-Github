@@ -106,14 +106,12 @@ public class Array<T> {
      * @return Index des ersten Vorkommens oder -1 wenn nicht gefunden.
      */
     public int indexOf(T gesucht) {
-    	for ( int i = 0; i < size; i++ ) {
-    		if ( null == data[i] && null == gesucht )
+    	for ( int i = 0; i < size; i++ )
+    		if (
+    				( null == data[i] && null == gesucht ) ||
+    				( null != data[i] && data[i].equals( gesucht ) )
+    		)
     			return i;
-    		else if ( null == data[i] )
-    			continue;
-    		else if ( data[i].equals( gesucht ) )
-    			return i;
-    	}
 
     	return NOT_FOUND;
     }
