@@ -52,6 +52,12 @@ public class ArrayTest {
     	assertEquals(-1, a.indexOf(null));
     	a.add(null);
     	assertEquals(4, a.indexOf(null));
+
+    	// Test ob null.equals() abgefangen wird
+    	Array<String> b = new Array<String>();
+    	b.add(null);
+    	b.add("abc");
+    	assertEquals(1, b.indexOf("abc"));
     }
 
     @Test
@@ -71,9 +77,8 @@ public class ArrayTest {
     	assertEquals(t2, r.get(2));
     	assertEquals(t3, r.get(1));
     	assertEquals(t4, r.get(0));
-    	// TODO: Den Test vervollstaendigen!
 
-    	assertFalse("This-Objekt darf nicht veraendert werden.", a.equals(r));
+    	assertFalse( "This-Objekt darf nicht veraendert werden!", a.equals( r ) );
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

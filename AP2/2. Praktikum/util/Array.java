@@ -18,8 +18,8 @@ public class Array<T> {
 	/**
 	 * Anzahl der gespeicherten Datenelemente
 	 */
-
     private int size = 0;
+
     /**
      * Array zum Speichern der Daten.
      */
@@ -66,7 +66,7 @@ public class Array<T> {
      * @throws IndexOutOfBoundsException wenn <tt>index</tt> illegal ist.
      */
     public T get(int index) {
-    	checkIndex(index);
+    	checkIndex( index );
 
         return data[index];
     }
@@ -78,7 +78,7 @@ public class Array<T> {
      * @param neu zu speichernde Transkation.
      */
     public void add(T neu) {
-       if (size == data.length)
+       if ( size == data.length )
     	   adjustArrayLength();
 
        data[size++] = neu;
@@ -87,13 +87,14 @@ public class Array<T> {
 	/**
 	 * Gibt ein Feld zurueck, dass die umgekehrte Elementreihenfolge hat.
 	 * Das this-Objekt wird nicht veraendert!
+	 *
 	 * @return neues umgedrehtes Array
 	 */
 	public Array<T> reversed() {
 		Array<T> reversedData = new Array<T>();
 
-		for( int i = data.length - 1; i >= 0; i--)
-			reversedData.add(data[i]);
+		for( int i = size() - 1; i >= 0; i--)
+			reversedData.add( data[i] );
 
 		return reversedData;
 	}
@@ -105,9 +106,14 @@ public class Array<T> {
      * @return Index des ersten Vorkommens oder -1 wenn nicht gefunden.
      */
     public int indexOf(T gesucht) {
-    	for ( int i = 0; i < size; i++ )
-    		if ( ( gesucht == null && data[i] == null ) || data[i].equals( gesucht ) )
+    	for ( int i = 0; i < size; i++ ) {
+    		if ( null == data[i] && null == gesucht )
     			return i;
+    		else if ( null == data[i] )
+    			continue;
+    		else if ( data[i].equals( gesucht ) )
+    			return i;
+    	}
 
     	return NOT_FOUND;
     }
@@ -116,11 +122,10 @@ public class Array<T> {
 	 * Ersetzt das bestehende Array durch ein Array doppelter Groesse.
 	 */
 	private void adjustArrayLength() {
-		int oldLength = data.length;
 		T[] tmp = data;
-		data = newArray( oldLength * 2 );
+		data = newArray( size * 2 );
 
-		for( int i = 0; i < oldLength; i++)
+		for( int i = 0; i < size; i++ )
 			data[i] = tmp[i];
 	}
 

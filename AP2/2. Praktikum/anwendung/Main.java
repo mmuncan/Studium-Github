@@ -3,10 +3,10 @@ package anwendung;
 import bank.Bank;
 
 /**
- * Fuehrt beispielhaft ein paar Kontobewegungen aus.
+ * Diese Klasse fuehrt beispielhaft ein paar Kontobewegungen aus.
  *
- * Es wird ein neue Bank mit dem Namen "Sparbank" angelegt.
- * Bei dieser Bank werden dann 2 Konten k1 und k2 angelegt.
+ * Es wird zunaechst eine neue Bank mit dem Namen "Sparbank" angelegt.
+ * Bei dieser Bank werden 2 Konten k1 und k2 angelegt.
  * In k1 wird dann 100 Euro eingezahlt und 20 Euro wieder ausgezahlt.
  * Danach wird der Kontostand beider Konten ausgeben.
  * Anschliessend wird in k2 70 Euro eingezahlt.
@@ -30,7 +30,7 @@ public class Main {
 
     	// Ausgabe Kontostand
     	System.out.printf(
-    			"Kontostand von k1 betraegt %.2f und von k2 %.2f.\n",
+    			"Kontostand von k1 betraegt %.2f Euro und von k2 %.2f Euro.\n",
     			b.kontostand( k1 ),
     			b.kontostand( k2 )
     	);
@@ -42,6 +42,6 @@ public class Main {
     	b.ueberweisen( k1, b, k2, 70 );
 
     	// Ausgabe Kontobewegungen
-    	b.kontobewegungenAusgeben(k1);
+    	b.kontobewegungenAusgeben( k1 );
     }
 }

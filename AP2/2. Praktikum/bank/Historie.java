@@ -7,7 +7,7 @@ import java.util.Locale;
  * Ein Objekt dieser Klasse speichert einen Umsatzvorgang fuer ein Konto.
  * Gespeichert werden die Aktion, der Geldbetrag (immer positiv) und
  * gegebenenfalls eine Angabe ueber das Zielkonto.
- * 
+ *
  * @author Erich Ehses, 2008
  */
 final class Historie {
@@ -27,7 +27,7 @@ final class Historie {
 
     /**
      * Formatiert einen Geldbetragt gemaess den deutschen Regeln.
-     * 
+     *
      * @param betrag Geldbetrag
      * @return formatierter String
      */
@@ -35,7 +35,7 @@ final class Historie {
        return numberFormat.format(betrag) + " Euro ";
     }
 
-    
+
     /**
      * Erzeugt das Transaktionsobjekt fuer das Abheben von Bargeld.
      * @param betrag Geldbetrag
@@ -43,7 +43,7 @@ final class Historie {
     static Historie barAbgehoben(double betrag) {
         return new Historie(Aktion.BAR_AUS, "", betrag);
     }
-    
+
     /**
      * Erzeugt das Transaktionsobjekt fuer das Einzahlen von Bargeld.
      * @param betrag Geldbetrag
@@ -51,20 +51,20 @@ final class Historie {
     static Historie barEingezahlt(double betrag) {
         return new Historie(Aktion.BAR_EIN, "", betrag);
     }
-    
+
     /**
      * Erzeugt das Transaktionsobjekt fuer das Abbuchen einer Ueberweisung.
-     * @paran ziel Zielkonto
+     * @param ziel Zielkonto
      * @param betrag Geldbetrag
      */
     static Historie abgebuchtFuer(String ziel, double betrag) {
         return new Historie(Aktion.UEBERW_AUS, ziel, betrag);
     }
-    
+
     /**
      * Erzeugt das Transaktionsobjekt fuer das Buchen einer Ueberweisung.
      * @param quelle einzahlendes Konto
-     * @param double betrag Geldbetrag
+     * @param betrag betrag Geldbetrag
      */
     static Historie gebuchtVon(String quelle, double betrag) {
         return new Historie(Aktion.UEBERW_EIN, quelle, betrag);
@@ -73,11 +73,10 @@ final class Historie {
     /**
      * Erzeugt eine neue Transaktion. Transaktionen werden nur in der Klasse
      * Konto verwendet.
-     * 
+     *
      * @param aktion Art des Umsatzes
      * @param ziel Partnerkonto (bei Ueberweisung)
      * @param betrag Geldbetrag
-     * @param vorherige vorhergehende Transaktion in der Transaktionsliste
      */
     private Historie(Aktion aktion, String ziel, double betrag) {
         this.aktion = aktion;
@@ -87,7 +86,7 @@ final class Historie {
 
     /**
      * Ueberschreibt <code>toString</code> aus der Klasse <code>Object</code>.
-     * 
+     *
      * @return verstaendlicher Text ueber die Kontobewegung
      */
     public String toString() {
