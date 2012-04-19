@@ -25,7 +25,14 @@
  *
  */
 public final class Bruch implements Comparable<Bruch> {
+    /**
+     * Der Zaehler
+     */
     private final long zaehler;
+
+    /**
+     * Der Nenner
+     */
     private final long nenner;
 
     /**
@@ -51,11 +58,12 @@ public final class Bruch implements Comparable<Bruch> {
      */
     @Override
     public boolean equals(Object einObjekt) {
-        if (einObjekt instanceof Bruch) {
-        	Bruch einBruch = (Bruch) einObjekt; // Objekt richtig casten
+        if (einObjekt instanceof Bruch) { // zuweisungskompatibel?
+        	Bruch einBruch = (Bruch) einObjekt; // Zuweisung zu Bruch
 
         	return einBruch.zaehler == zaehler && einBruch.nenner == nenner;
         }
+
         return false;
     }
 
@@ -101,7 +109,7 @@ public final class Bruch implements Comparable<Bruch> {
     	if ( nenner == 0 )
     		throw new ArithmeticException( "Nenner darf nicht 0 sein!");
 
-        final long teiler = ggt(Math.abs(zaehler), Math.abs(nenner));
+        final long teiler = ggt( Math.abs(zaehler), Math.abs(nenner) );
         this.zaehler = (zaehler * Long.signum(nenner)) / teiler;
         this.nenner = (nenner * Long.signum(nenner)) / teiler;
     }
@@ -168,9 +176,9 @@ public final class Bruch implements Comparable<Bruch> {
      */
     public Bruch kehrwert() {
     	if ( zaehler == 0 )
-    		throw new ArithmeticException("Zaehler darf bei Kehrwert nicht 0 sein!");
+    		throw new ArithmeticException( "Zaehler darf bei Kehrwert nicht 0 sein!" );
 
-    	return new Bruch(nenner, zaehler);
+    	return new Bruch( nenner, zaehler );
     }
 
     /**
@@ -212,12 +220,19 @@ public final class Bruch implements Comparable<Bruch> {
      * <pre>
      * 2/3, -2/3, 0, 10
      * </pre>
+     *
+     * @return Bruch als String
      */
     @Override
     public String toString() {
         return (nenner != 1) ? zaehler + "/" + nenner : String.valueOf(zaehler);
     }
 
+    /**
+     * Gibt eine eindeutige Integerzahl zurueck, die das Objekt identifiziert.
+     *
+     * @return Wert des Hashcodes
+     */
     @Override
     public int hashCode() {
         return (int)(zaehler + nenner);
@@ -248,6 +263,7 @@ public final class Bruch implements Comparable<Bruch> {
      *         groesser, kleiner oder gleich dem Argument ist
      */
     public int compareTo(Bruch einBruch) {
-        return Long.signum((this.zaehler * einBruch.nenner) - (einBruch.zaehler * this.nenner));
+        //return Long.signum((this.zaehler * einBruch.nenner) - (einBruch.zaehler * this.nenner));
+    	return Long.signum( this.subtrahiere( einBruch).zaehler() );
     }
 }

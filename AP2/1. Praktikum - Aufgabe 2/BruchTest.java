@@ -2,12 +2,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Testet die Klasse <code>Bruch</code>
- * 
+ *
  * @author Erich Ehses
  */
 public class BruchTest {
@@ -19,7 +18,7 @@ public class BruchTest {
     private static final double EPS = 1E-12;
 
     /**
-     * Testet den Konstruktor <code>Bruch(zahl)</code>. 
+     * Testet den Konstruktor <code>Bruch(zahl)</code>.
      * <p>
      * Es wird vorausgesetzt, dass die Methoden <code>zaehler()</code>
      * und <code>nenner()</code> funktionieren.
@@ -42,7 +41,7 @@ public class BruchTest {
         assertEquals(Long.MAX_VALUE, r.zaehler());
         assertEquals(1, r.nenner());
     }
-    
+
     /**
      * Testet ob die beiden Konstanten ONE und ZERO
      * korrekt initialisiert wurden.
@@ -76,16 +75,16 @@ public class BruchTest {
         r = new Bruch(100, -24);
         assertEquals(-25, r.zaehler());
         assertEquals(6, r.nenner());
-        
+
         r = new Bruch(3000000000L, 4000000000L);
         assertEquals(3, r.zaehler());
         assertEquals(4, r.nenner());
-        
+
         r = new Bruch(3, 3000000001L);
         assertEquals(3, r.zaehler());
         assertEquals(3000000001L, r.nenner());
     }
-    
+
 
     /**
      * Testet, ob bei einem Konstruktoraufruf mit Zaehler = 0 auch eine
@@ -95,12 +94,12 @@ public class BruchTest {
     public void nennerIst0() {
         new Bruch(10, 0);
     }
-    
+
     @Test(expected = ArithmeticException.class)
     public void nullDurchNull() {
         new Bruch(0, 0);
     }
-   
+
     /**
      * Testet das richtige Verhalten von equals(). Dazu gehoert auch der
      * Vergleich mit <code>null</code> und mit einem Objekt eines anderen
@@ -118,7 +117,7 @@ public class BruchTest {
         assertFalse("Kein Objekt kann gleich null sein", r1.equals(null));
         assertFalse("Ein Bruch ist kein String", r1.equals("-2/3"));
     }
-    
+
     /**
      * Testet die Funktionsweise von parseBruch.
      * Macht erst Sinn, wenn equals funktioniert.
@@ -132,7 +131,7 @@ public class BruchTest {
         assertEquals(new Bruch(-1,2), Bruch.parseBruch("-10/20"));
         assertEquals(new Bruch(-20), Bruch.parseBruch("-20"));
     }
-    
+
     @Test(expected = NumberFormatException.class)
     public void illegalerBruchString() {
         Bruch.parseBruch("1.2");
@@ -142,7 +141,7 @@ public class BruchTest {
      * Testet die Addition. Die beteiligten Objekte duerfen nicht veraendert
      * werden.
      * <p>
-     * Die Methode equals() muss funktionieren! 
+     * Die Methode equals() muss funktionieren!
      */
     @Test
     public void addition() {
@@ -159,13 +158,13 @@ public class BruchTest {
         r2 = new Bruch(2, -4);
         r3 = r1.addiere(r2);
         assertEquals(new Bruch(0), r3);
-    } 
+    }
 
     /**
      * Testet die Subtraktion. Die beteiligten Objekte duerfen nicht veraendert
      * werden.
      * <p>
-     * Die Methode equals() muss funktionieren! 
+     * Die Methode equals() muss funktionieren!
      */
     @Test
     public void subraktion() {
@@ -187,7 +186,7 @@ public class BruchTest {
      * Testet die Multiplikation. Die beteiligten Objekte duerfen nicht
      * veraendert werden.
      * <p>
-     * Die Methode equals() muss funktionieren! 
+     * Die Methode equals() muss funktionieren!
      */
     @Test
     public void multiplikation() {
@@ -209,7 +208,7 @@ public class BruchTest {
      * werden. Die Divison durch 0 muss zu einer
      * <code>ArithmeticException</code> fuehren.
      * <p>
-     * Die Methode equals() muss funktionieren! 
+     * Die Methode equals() muss funktionieren!
      */
     @Test
     public void division() {
@@ -220,7 +219,7 @@ public class BruchTest {
         assertEquals(new Bruch(5, 6), r2);
         assertEquals(new Bruch(4, 5), r3);
     }
-    
+
     @Test(expected = ArithmeticException.class)
     public void divisionDurch0() {
         new Bruch(1, 2).dividiere(Bruch.ZERO);
@@ -230,7 +229,7 @@ public class BruchTest {
      * Testet den Kehrwert. Der Kehrwert von 0 muss eine
      * <code>ArithmeticException</code> erzeugen.
      * <p>
-     * Die Methode equals() muss funktionieren! 
+     * Die Methode equals() muss funktionieren!
      */
     @Test
     public void kehrwert() {
@@ -239,7 +238,7 @@ public class BruchTest {
     	assertEquals(new Bruch(10,1), new Bruch(2,20).kehrwert());
     	assertEquals(new Bruch(10,1), new Bruch(2,20).kehrwert());
     }
-    
+
     @Test(expected = ArithmeticException.class)
     public void kehrwertVon0() {
         Bruch.ZERO.kehrwert();
@@ -285,7 +284,7 @@ public class BruchTest {
         		big.compareTo(Bruch.ZERO) > 0);
         assertTrue("compareTo ist zu ungenau",
         		big.compareTo(big.subtrahiere(Bruch.ONE)) > 0);
-        assertTrue("die Vergleichsformel ist falsch", 
+        assertTrue("die Vergleichsformel ist falsch",
         		new Bruch(2,3).compareTo(new Bruch(7,30)) > 0);
     }
 
@@ -304,7 +303,7 @@ public class BruchTest {
         assertEquals("2/3", new Bruch(-4, -6).toString());
         assertEquals("-2/3", new Bruch(4, -6).toString());
     }
-    
+
     /**
      * Testet die <tt>hashCode</tt>-Operation. Wenn zwei Brueche gleich sind,
      * muessen auch die HashCodes gleich sein. Mehr kann man allerdings
@@ -315,7 +314,7 @@ public class BruchTest {
         Bruch r1 = new Bruch(20, 30);
         Bruch r2 = new Bruch(-2, -3);
         assertEquals(r1.hashCode(), r2.hashCode());
-        
+
         r1 = Bruch.ONE;
         r2 = Bruch.ZERO.addiere(Bruch.ONE);
         assertEquals(r1.hashCode(), r2.hashCode());

@@ -123,8 +123,10 @@ public class Array<T> {
 		T[] tmp = data;
 		data = newArray( size * 2 );
 
+		// System.arraycopy( tmp, 0, data, 0, size );
 		for( int i = 0; i < size; i++ )
 			data[i] = tmp[i];
+
 	}
 
     /**

@@ -20,6 +20,7 @@ public class FinancialHistory {
 	 * The total amount of money currently at hand.
 	 */
     private double cashOnHand = 0.0;
+
     /**
      * The mapping of income-source to amounts of money.
      */
@@ -151,7 +152,9 @@ public class FinancialHistory {
      */
     private static double totalOf(Collection<Double> values) {
     	double sum = 0.0;
-    	for (double value : values) sum += value;
+    	for (double value : values)
+    		sum += value;
+
     	return sum;
     }
 

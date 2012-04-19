@@ -15,14 +15,14 @@ import javax.swing.JTextField;
 /**
  * This is the graphical interface for class
  * <code>FinancialHistory</code>.
- * 
+ *
  * @author Erich Ehses
  *
  */
 public class Application extends JFrame {
 	private FinancialHistory history;
 	private NumberFormat nf;
-	
+
 	private Application() {
 		super("A financial history");
 		history = new FinancialHistory();
@@ -41,7 +41,7 @@ public class Application extends JFrame {
         setResizable(false);
         setVisible(true);
 	}
-	
+
 	private JTextField source;
 	private JTextField sourceAmount;
 
@@ -62,11 +62,11 @@ public class Application extends JFrame {
 		}));
 		return p;
 	}
-	
+
 	private void illegalInput(String text) {
 		new ErrorDialog("Illegal Input: " + text);
 	}
-	
+
 	private JTextField reason;
 	private JTextField reasonAmount;
 
@@ -87,15 +87,15 @@ public class Application extends JFrame {
 		}));
 		return p;
 	}
-	
+
 	private JTextField cashOnHand ;
-	
+
 	private LabelledItemPanel cash() {
 		LabelledItemPanel p = new LabelledItemPanel();
 		p.addItem("Money on hand: ", cashOnHand);
 		return p;
 	}
-	
+
 	private Component recallTotals() {
 		JButton b = new JButton("recall totals");
 		b.addActionListener(new ActionListener() {
@@ -105,7 +105,7 @@ public class Application extends JFrame {
 		});
 		return b;
 	}
-	
+
 	private void update() {
 		String src = read(source);
 		String rsn = read(reason);
@@ -117,7 +117,7 @@ public class Application extends JFrame {
 	private void updateTotal() {
 		cashOnHand.setText(nf.format(history.cashOnHand()));
 	}
-	
+
 	private void initFields() {
 		source = new JTextField();
 		sourceAmount = new JTextField();
