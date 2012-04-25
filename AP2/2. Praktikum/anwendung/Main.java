@@ -13,6 +13,8 @@ import bank.Bank;
  * Dann werden 20 Euro von Konto k1 auf Konto k2 ueberwiesen.
  * Zum Schluss werden die Kontobewegungen angezeigt.
  *
+ * @author Dominik Schilling
+ *
  */
 public class Main {
     public static void main(String[] args) {
