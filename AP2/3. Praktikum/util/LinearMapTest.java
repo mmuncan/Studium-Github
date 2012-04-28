@@ -1,3 +1,4 @@
+package util;
 
 
 import static org.junit.Assert.assertEquals;
@@ -14,6 +15,7 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+
 
 /**
  * Klassen zum Testen der LinearMap-Klasse aus dem AP-Praktikum.

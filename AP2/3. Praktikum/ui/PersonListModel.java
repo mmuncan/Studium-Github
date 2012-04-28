@@ -1,7 +1,12 @@
+package ui;
+
 
 import java.util.List;
 
 import javax.swing.AbstractListModel;
+
+import book.IAddress;
+import book.IAddressbook;
 
 /**
  * Die Klasse implementiert ein Listmodell für eine Adressverwaltung.

@@ -1,3 +1,4 @@
+package util;
 /**
  * Hilfsklasse für einzelne Einträge.
  * @param K Typ der Schluesselobjekte
