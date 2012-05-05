@@ -32,6 +32,7 @@ final class BlackToken extends AbstractToken {
 
 	/**
 	 * Diese Token ist schwarz.
+	 *
 	 * @return immer <tt>true</tt>
 	 */
 	public boolean isBlack() {

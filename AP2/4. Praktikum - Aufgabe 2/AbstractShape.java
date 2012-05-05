@@ -12,31 +12,34 @@
  */
 
 public abstract class AbstractShape implements IShape {
-    private String name;
+	/**
+	 * Speicher den Objektnamen.
+	 */
+	private String name;
 
-    /**
-     * Konstruktor. Speichert den Namen des Objekts.
-     * 
-     * @param name Objektname.
-     */
-    public AbstractShape(String name) {
-        this.name = name;
-    }
+	/**
+	 * Konstruktor. Speichert den Namen des Objekts.
+	 *
+	 * @param name Objektname.
+	 */
+	public AbstractShape(String name) {
+		this.name = name;
+	}
 
-    /**
-     * Gibt den Objektnamen als String zurueck.
-     * 
-     * @return Objektname.
-     */
-    public final String getName() {
-        return name;
-    }
+	/**
+	 * Gibt den Objektnamen als String zurueck.
+	 *
+	 * @return Objektname.
+	 */
+	public final String getName() {
+		return name;
+	}
 
-    /*
-     * @see IShape#compareTo(IShape)
-     */
-    public final int compareTo(IShape s) {
-        return (int) Math.signum(getArea() - s.getArea());
-    }
+	/**
+	 * @see IShape#compareTo(IShape)
+	 */
+	public final int compareTo(IShape s) {
+		return (int) Math.signum(getArea() - s.getArea());
+	}
 
 }

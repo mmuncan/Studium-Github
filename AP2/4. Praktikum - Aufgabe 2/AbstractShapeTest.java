@@ -3,7 +3,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * Modellklasse für das Testen von Shape-Klassen.
+ * <code>setUp</code>, <code>testArea</code> und <code>prefix</code>
+ * müssen in der Unterklasse beschrieben werden.
+ *
+ * @author Dominik Schilling
+ */
 public abstract class AbstractShapeTest {
 	protected IShape s1;
 	protected IShape s2;

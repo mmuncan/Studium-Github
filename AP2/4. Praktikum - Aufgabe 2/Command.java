@@ -3,5 +3,5 @@
  * Geeignet für alle moeglichen Festlegungen von Aktionen.
  */
 public interface Command {
-    public void execute();
+	public void execute();
 }

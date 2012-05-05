@@ -21,13 +21,19 @@ final class WhiteToken extends AbstractToken {
 	 * @Token der naechsten Generation.
 	 */
 	protected Token nextGeneration(int neighbours) {
-		// TODO: richtige Regel einsetzen.
+		// Schwarzes Token erzeugen
 		if ( 3 == neighbours )
 			return BlackToken.instance();
 
+		// Das weiße Token zurückgeben
 		return instance;
 	}
 
+	/**
+	 * Diese Token ist schwarz.
+	 *
+	 * @return immer <tt>false</tt>
+	 */
 	public boolean isBlack() {
 		return false;
 	}

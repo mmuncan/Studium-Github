@@ -8,14 +8,16 @@ public abstract class AbstractToken implements Token {
 	 * @return Anzahl der schwarzen Nachbarn
 	 */
 	private int blackNeighbours(Token[] neighbours) {
-		// TODO: Anzahl der schwarzen Nachbarn bestimmen.
 		int count = 0;
 
+		// Durchlaufe jeden Nachbarn
 		for( Token neighbour : neighbours) {
+			// Ist Nachbar ein schwarzes Token?
 			if ( neighbour.isBlack() )
 				count++;
 		}
 
+		// Anzahl der schwarzen Nachbarn zurückgeben
 		return count;
 	}
 
